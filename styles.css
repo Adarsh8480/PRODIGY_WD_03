@@ -1,0 +1,146 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+/* Tic-Tac-Toe Container */
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Cells */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    user-select: none;
+}
+
+/* Hover Effect */
+.cell:hover {
+    background-color: #d9e3f0;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* X and O Styles */
+.x {
+    color: #f44336; /* Red color for X */
+}
+
+.o {
+    color: #2196F3; /* Blue color for O */
+}
+
+/* Clicked cell effect */
+.clicked {
+    transform: scale(1.1); /* Zoom in effect on click */
+    transition: transform 0.3s ease;
+}
+
+/* Winning highlight animation */
+.highlight {
+    background-color: #4caf50; /* Green highlight for winning combination */
+    animation: pulse 1s infinite;
+}
+
+/* Pulse effect for winning combination */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 10px 20px rgba(76, 175, 80, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+}
+
+/* Game status */
+#gameStatus {
+    margin-top: 20px;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Reset Button */
+#resetBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#resetBtn:hover {
+    background-color: #f57c00;
+}
+
+/* Game container */
+#gameContainer {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#gameContainer h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Keyframes for cell entry animation */
+@keyframes cellEntry {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Apply animation to each cell */
+.cell {
+    animation: cellEntry 0.5s ease-in-out;
+}
